@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from .models import Question, Choice
 from django.urls import reverse
 from django.views import generic
+from django.utils import timezone
+import datetime
 # def index(request):
 #     latest_question_list = Question.objects.all()
 #     return render(request, "polls/index.html", {'latest_question_list': latest_question_list})
@@ -19,7 +21,7 @@ class IndexView(generic.ListView):
     context_object_name = "latest_question_list"
     
     def get_queryset(self):
-        return Question.objects.order_by("-pub_date")[:5]
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")[:5]
     
 class DetailView(generic.DetailView):
     model = Question
@@ -42,3 +44,7 @@ def vote(request,question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+def current_datetime(request):
+    now = datetime.datetime.now()
+    html = "<html><body>It is now %s.</body></html>" % now
+    return HttpResponse(html)
