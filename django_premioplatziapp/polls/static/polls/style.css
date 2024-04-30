@@ -1,0 +1,93 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 100vh;
+    background: hsl(204 100% 5%);
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 50px;
+    padding-top: 100px;
+    height: 60px;
+
+    font-size: 72px;
+    color: #71632d;
+}
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header, ul{
+    background:  linear-gradient( to right, hsl(98 100%  62%), hsl(204 100%  59%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    text-align: center;
+}
+li{
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+
+    border: 1px solid white;
+    padding: 50px;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+footer{
+    display:flex ;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    width: 100vw;
+    padding: 50px 0;
+}
+.btn {
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #40B3A2;
+    min-width: 200px;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+} 
+.btn:hover {
+    opacity: .95;
+}
+.btn .animation {
+    border-radius: 100%;
+    animation: ripple 0.6s linear infinite;
+}
+@keyframes ripple {
+    0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+    }
+    100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1), 0 0 0 80px rgba(255, 255, 255, 0);
+    }
+}
